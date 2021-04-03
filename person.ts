@@ -9,7 +9,7 @@ export class Person {
     private _age: number,
     private _dni: string,
     private _birthday: string,
-    private _favoriteColor: string,
+    private _color: string,
     private _gender: string,
     private _address: Array<Address>,
     private _mail: Array<Mail>,
@@ -32,8 +32,8 @@ export class Person {
   set birthday(birthday: string){
     this._birthday = birthday;
   }
-  set favoriteColor(favoriteColor: string){
-    this._favoriteColor = favoriteColor;
+  set color(color: string){
+    this._color = color;
   }
   set gender(gender: string) {
     this._gender = gender;
@@ -66,8 +66,8 @@ export class Person {
   get birthday(): string{
     return this._birthday;
   }
-  get favoriteColor(): string{
-    return this._favoriteColor;
+  get color(): string{
+    return this._color;
   }
   get gender(): string{
     return this._gender;
@@ -98,10 +98,10 @@ export class Person {
   setAddress(newAddress: Address): void{
     this._address = [newAddress];
   }
-  setMail(newMail: Mail): void {
+  setMail(newMail: Mail): void{
     this._mail = [newMail];
   }
-  setPhone(newPhone: Phone): void {
+  setPhone(newPhone: Phone): void{
     this._phone = [newPhone];
   }
 
@@ -124,7 +124,7 @@ export class Person {
     }
     return allPhones;
   }
-  showAllMails(): string {
+  showAllMails(): string{
     let allEmail: string = '';
     for (let i = 0; i < this._mail.length; i++) {
       allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mail[i].email} (${
@@ -143,7 +143,7 @@ export class Person {
     Edad: ${this._age}
     DNI: ${this._dni}
     Fecha de Cumpleaños: ${this._birthday}
-    Color Favorito: ${this._favoriteColor}
+    Color Favorito: ${this._color}
     Género: ${this._gender}
     Dirección: ${this.showAllAddresses()}
     Email: ${this.showAllMails()}
