@@ -1,3 +1,10 @@
+import { Person } from './person';
+import { Address } from './address';
+import { Mail } from './mail';
+import { Phone } from './phone';
+
+
+
 class Person{
     private _name: string;
     private _surname: string;
