@@ -3,9 +3,9 @@ import { Address } from './address';
 import { Mail } from './mail';
 import { Phone } from './phone';
 
+
 function Agenda(): Array<Person> {
   let agenda: Array<Person> = [];
-  
   const person1: Person = new Person(
     'María',
     'Mateo Vázquez',
@@ -53,40 +53,49 @@ function Agenda(): Array<Person> {
   agenda.push(person2);
   agenda.push(person3);
 
-  console.log(agenda)
   return agenda;
-  
 }
 
 Agenda()
 
+const dni: string = '45110653Z'
+const newAddress: Address = new Address(
+  'Calle Perseo', 20, 2, 'C', 28007, 'Madrid', 'Madrid'
+)
+const newPhone: Phone = new Phone(
+  'Personal', 666555444
+)
+const newMail: Mail = new Mail(
+  'Trabajo', 'mariamateo@empresa.com'
+)
 
-//Se modificará uno de los registros de persona añadidos, realizando la búsqueda por DNI y añadiendo una nueva dirección, un nuevo mail y un nuevo teléfono. Estos cambios se deben realizar mediante el uso de métodos definidos previamente en las clases.
+function changeData(
+  dni: string,
+  newAddress: Address,
+  newMail: Mail,
+  newPhone: Phone,
+): void {
+  agenda.map(
+    person => {
+      if(person.dni === dni){
+        person.setAddress(newAddress);
+        person.setMail(newMail);
+        person.setPhone(newPhone);
+        checkAgenda()
+      }else{
+        checkAgenda()
+      }
+    }
+  )
+}
 
+changeData(dni, newAddress, newMail, newPhone)
+
+
+function checkAgenda(){
+  console.log(agenda)
+}
 
 
 //Se mostrarán desde el módulo principal los 3 registros con los cambios realizados anteriormente en la consola.
 
-
-/*
-function showAgenda(agenda: Array<Person>): void{
-  for (const person of agenda){
-    console.log(person.showPersonInfo());
-  }
-}
-
-function addNewPerson(
-  numberDni: string,
-  newAddress: Address,
-  newMail: Mail,
-  newPhone: Phone
-): void{
-  for (const person of agenda){
-    if (person.dni === numberDni) {
-      person.addAddress(newAddress);
-      person.addMail(newMail);
-      person.addPhone(newPhone);
-    }
-  }
-}
-*/
