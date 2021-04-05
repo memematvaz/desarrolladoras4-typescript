@@ -109,7 +109,7 @@ export class Person {
   showAllAddresses(): string{
     let allAddresses: string = '';
     for (let i = 0; i < this._address.length; i++) {
-      allAddresses = `${allAddresses}\n\tDirección ${i + 1}: ${this._address[
+      allAddresses = `${allAddresses} ${this._address[
         i
       ].showAddress()}`;
     }
@@ -118,7 +118,7 @@ export class Person {
   showAllPhones(): string{
     let allPhones: string = '';
     for (let i = 0; i < this._phone.length; i++) {
-      allPhones = `${allPhones}\n\tTeléfono ${i + 1}: ${
+      allPhones = `${allPhones} ${
         this._phone[i].numberPhone
       } (${this._phone[i].type})`;
     }
@@ -127,7 +127,7 @@ export class Person {
   showAllMails(): string{
     let allEmail: string = '';
     for (let i = 0; i < this._mail.length; i++) {
-      allEmail = `${allEmail}\n\tEmail ${i + 1}: ${this._mail[i].email} (${
+      allEmail = `${allEmail} ${this._mail[i].email} (${
         this._mail[i].type
       })`;
     }

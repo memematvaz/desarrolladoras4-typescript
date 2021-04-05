@@ -12,28 +12,28 @@ function Agenda() {
     agenda.push(person1);
     agenda.push(person2);
     agenda.push(person3);
+    changeData(agenda);
     return agenda;
 }
-Agenda();
-var dni = '45110653Z';
-var newAddress = new address_1.Address('Calle Perseo', 20, 2, 'C', 28007, 'Madrid', 'Madrid');
-var newPhone = new phone_1.Phone('Personal', 666555444);
-var newMail = new mail_1.Mail('Trabajo', 'mariamateo@empresa.com');
-function changeData(dni, newAddress, newMail, newPhone) {
-    agenda.map(function (person) {
+function changeData(agenda) {
+    var newAgenda = agenda;
+    var dni = '45110653Z';
+    var newAddress = new address_1.Address('Calle Perseo', 20, 2, 'C', 28007, 'Madrid', 'Madrid');
+    var newPhone = new phone_1.Phone('Personal', 666555444);
+    var newMail = new mail_1.Mail('Trabajo', 'mariamateo@empresa.com');
+    newAgenda.map(function (person) {
         if (person.dni === dni) {
             person.setAddress(newAddress);
             person.setMail(newMail);
             person.setPhone(newPhone);
-            checkAgenda();
         }
         else {
-            checkAgenda();
         }
     });
+    return agenda = newAgenda;
 }
-changeData(dni, newAddress, newMail, newPhone);
-function checkAgenda() {
-    console.log(agenda);
+function showAgenda(agenda) {
+    Agenda();
+    agenda.forEach(function (person) { console.log(person.showPersonInfo()); });
 }
-//Se mostrarán desde el módulo principal los 3 registros con los cambios realizados anteriormente en la consola.
+showAgenda(agenda);

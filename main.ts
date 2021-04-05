@@ -3,9 +3,10 @@ import { Address } from './address';
 import { Mail } from './mail';
 import { Phone } from './phone';
 
+let agenda: Array<Person> = [];
 
 function Agenda(): Array<Person> {
-  let agenda: Array<Person> = [];
+
   const person1: Person = new Person(
     'María',
     'Mateo Vázquez',
@@ -48,54 +49,48 @@ function Agenda(): Array<Person> {
     'Nada que anotar'
   );
 
-
   agenda.push(person1);
   agenda.push(person2);
   agenda.push(person3);
-
-  return agenda;
+  
+  changeData(agenda)
+  return agenda
+  
 }
 
-Agenda()
 
-const dni: string = '45110653Z'
-const newAddress: Address = new Address(
-  'Calle Perseo', 20, 2, 'C', 28007, 'Madrid', 'Madrid'
-)
-const newPhone: Phone = new Phone(
-  'Personal', 666555444
-)
-const newMail: Mail = new Mail(
-  'Trabajo', 'mariamateo@empresa.com'
-)
+function changeData(agenda): Array<Person>{
 
-function changeData(
-  dni: string,
-  newAddress: Address,
-  newMail: Mail,
-  newPhone: Phone,
-): void {
-  agenda.map(
+  let newAgenda: Array<Person> = agenda;
+  const dni: string = '45110653Z'
+  const newAddress: Address = new Address(
+    'Calle Perseo', 20, 2, 'C', 28007, 'Madrid', 'Madrid'
+  )
+  const newPhone: Phone = new Phone(
+    'Personal', 666555444
+  )
+  const newMail: Mail = new Mail(
+    'Trabajo', 'mariamateo@empresa.com'
+  )
+  newAgenda.map(
     person => {
       if(person.dni === dni){
         person.setAddress(newAddress);
         person.setMail(newMail);
         person.setPhone(newPhone);
-        checkAgenda()
       }else{
-        checkAgenda()
+
       }
     }
   )
+  return agenda = newAgenda
 }
 
-changeData(dni, newAddress, newMail, newPhone)
-
-
-function checkAgenda(){
-  console.log(agenda)
+function showAgenda(agenda: Array<Person>): void {
+  Agenda()
+  agenda.forEach(
+    person => { console.log(person.showPersonInfo())}
+  )
 }
 
-
-//Se mostrarán desde el módulo principal los 3 registros con los cambios realizados anteriormente en la consola.
-
+showAgenda(agenda)

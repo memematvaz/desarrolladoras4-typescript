@@ -146,21 +146,21 @@ var Person = /** @class */ (function () {
     Person.prototype.showAllAddresses = function () {
         var allAddresses = '';
         for (var i = 0; i < this._address.length; i++) {
-            allAddresses = allAddresses + "\n\tDirecci\u00F3n " + (i + 1) + ": " + this._address[i].showAddress();
+            allAddresses = allAddresses + " " + this._address[i].showAddress();
         }
         return allAddresses;
     };
     Person.prototype.showAllPhones = function () {
         var allPhones = '';
         for (var i = 0; i < this._phone.length; i++) {
-            allPhones = allPhones + "\n\tTel\u00E9fono " + (i + 1) + ": " + this._phone[i].numberPhone + " (" + this._phone[i].type + ")";
+            allPhones = allPhones + " " + this._phone[i].numberPhone + " (" + this._phone[i].type + ")";
         }
         return allPhones;
     };
     Person.prototype.showAllMails = function () {
         var allEmail = '';
         for (var i = 0; i < this._mail.length; i++) {
-            allEmail = allEmail + "\n\tEmail " + (i + 1) + ": " + this._mail[i].email + " (" + this._mail[i].type + ")";
+            allEmail = allEmail + " " + this._mail[i].email + " (" + this._mail[i].type + ")";
         }
         return allEmail;
     };
